@@ -18,5 +18,7 @@ public class SuperClass {
 		System.out.println("Super class method is accessible");
 	}
 
-	
+	public void simpleMethod() {
+		System.out.println("I am a Simple Method - SuperClass");
+	}
 }
