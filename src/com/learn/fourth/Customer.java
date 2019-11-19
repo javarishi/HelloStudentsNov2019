@@ -1,6 +1,8 @@
 package com.learn.fourth;
 
-public class Customer {
+public class Customer 
+//	extends Person
+{
 	
 	private String firstName;
 	private String address;
@@ -11,6 +13,15 @@ public class Customer {
 		System.out.println("Customer Constructor");
 	}
 	
+	/*
+	@Override
+	public void validateSSN(String ssn) {
+		if(ssn.length() == 10) {
+			System.out.println("Valid SSN provided");
+		}else {
+			System.out.println("Not Valid SSN");
+		}
+	}*/
 	
 	protected Customer validateAddress(int zipCode) {
 		Customer cust = new Customer();

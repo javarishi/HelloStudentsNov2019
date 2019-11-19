@@ -2,8 +2,12 @@ package com.learn.fourth;
 
 public class PreferredCustomer extends Customer{
 	
+	public final String companyName = "Best Buy Inc";
+	
+	
 	public PreferredCustomer() {
 		System.out.println("PreferredCustomer Constructor");
+		//this.companyName = "Walmart Inc";
 	}
 
 	@Override

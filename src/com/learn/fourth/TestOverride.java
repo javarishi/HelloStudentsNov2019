@@ -8,6 +8,8 @@ public class TestOverride {
 		Customer pCust = new PreferredCustomer();
 		Customer cust  = pCust.validateAddress(1);
 		
+	//	cust.validateSSN("213213902139");
+		
 		// Assignment - Coding test
 		// Even if you pass 1 digit zipcode - make it - 5 digit
 		// More than 5 digit -show the message its not a valid zipcode
