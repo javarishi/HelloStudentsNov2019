@@ -3,7 +3,7 @@ package com.learn.collections;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestList {
+public class TestList  {
 
 	public static void main(String[] args) {
 		ArrayList<String> arrayList = new ArrayList<String>();
@@ -16,6 +16,8 @@ public class TestList {
 		arrayList.add(2, "D");
 		System.out.println(arrayList);
 		
+	
+		//arrayList.sort(c);
 		arrayList.add(arrayList.size(), "J");
 		System.out.println(arrayList);
 		
@@ -27,21 +29,35 @@ public class TestList {
 		
 		System.out.println(sectionList);
 		// iteration
-		
+		for(String eachItem : arrayList) {
+			System.out.println(eachItem);
+		}
 		
 		// contains
+		if(arrayList.contains("A")) {
+			System.out.println("List contains A");
+		}
 		
 		// contailsAll
+		if(arrayList.containsAll(sectionList)) {
+			System.out.println("List contains all elements of sectionList");
+		}
 		
+		// remove - you can remove by index or element in List
+		arrayList.remove(0); // remove element at index 0
+		arrayList.remove("B"); // remove element itself
 		
-		// remove
-		
+		ArrayList<String> newList = new ArrayList<String>();
+		newList.add("D");
 		
 		// removeAll
+		arrayList.removeAll(newList); // removes all common elements in arrayList and Sectionlist 
 		
 		
 		// retainAll
-
+		arrayList.retainAll(sectionList); // retains all common elements in arrayList and Sectionlist
 	}
+
+
 
 }

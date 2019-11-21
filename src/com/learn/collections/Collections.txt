@@ -1,0 +1,106 @@
+c1 = {A,B,C,D}
+c1.add(E)
+c1 = {A,B,C,D,E}
+c1.contains(B) --> true
+c1.contains(F) --> false
+c1.isEmpty() --> false
+c1.remove(A)
+c1 = {B,C,D,E}
+c1.size() --> 4
+c1.clear( )
+c1= {}
+c1.isEmpty() --> true
+
+
+
+C1 = {A,B,C}
+C2 = {X,Y,Z}
+C3 = {A,B}
+
+C1.containsAll(C2) --> False
+C1.containsAll(C3) --> true
+
+C1.addAll(C2) 
+C1 = {A,B,C, X,Y,Z}
+
+C1.removeAll(C3)
+C1 = {C,X,Y,Z}
+
+C1.retainAll(C2)
+C1 = {X,Y,Z}
+
+
+list = {A,B,C,D}
+
+Index	Element
+0	A
+1	B
+2	C
+3	F
+4	D
+5	E
+
+list.add(4,E)
+
+list.add(3,F)
+1. replace D with F
+2. moves D next and Add F at 3
+
+list.add(10, J)
+1. 6 - 9 as Empty items
+2. Error
+
+
+Map - Key Value
+
+Storing even numbers
+
+Map m = 
+Key		Value
+A		0    ----> MapEntry(A,0)
+B		2
+C		10
+D		6
+E		8
+
+Key - Object - Unique
+Value - Object
+
+m.put(key, value)
+m.put(E, 8)
+
+m.put(C, 10) - 1
+1. replace
+2. move forward
+
+containsKey(A) -- true
+containsValue(10)	--  true
+
+
+entrySet --> MapEntry Obejcts
+
+get(A) --> 0
+get(C) --> 10
+
+m.isEmpty() --> False
+
+m.keySet() --> Set of keys
+for(String eachKey : m.keySet()) 
+
+
+Queue q = {A,B,C,D}
+Queue r = {}
+
+q.element() --> A   --> q = {A,B,C,D}
+r.element() --> Exception
+
+q.peek() --> A --> q = {A,B,C,D}
+r.peek() --> null 
+
+q.offer(E) -->  q = {A,B,C,D,E}
+
+q.poll() --> A -->  q = {B,C,D,E}
+r.poll() --> null
+
+q.remove() --> B -->  q = {C,D,E}
+r.remove() --> Exception

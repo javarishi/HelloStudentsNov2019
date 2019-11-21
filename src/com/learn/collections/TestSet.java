@@ -14,6 +14,8 @@ public class TestSet {
 		hashSet.add("Toothpaste");
 		hashSet.add("Deoderent");
 		
+		
+		
 		System.out.println(hashSet);
 		
 		hashSet.remove("Toothpaste");
