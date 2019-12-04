@@ -1,0 +1,11 @@
+
+
+
+1. Driver
+2. DriverManger 
+	A. Registers Drivers
+	B. Provides Connectivity
+3. Connection 
+4. Statement - against the connection
+5. ResultSet
+6. SQlException
