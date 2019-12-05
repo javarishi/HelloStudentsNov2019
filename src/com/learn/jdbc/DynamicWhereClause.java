@@ -2,43 +2,33 @@ package com.learn.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Properties;
 
-
-public class TestJDBCConnection {
-
+public class DynamicWhereClause {
+	
 	private static String url =  "jdbc:mysql://localhost:3306/sakila";
 	private static String userName = "root";
 	private static String password = "password";
-	private static String selectAllActors = "Select * from Actor Where actor_id = 155";
-	
-	
+	private static String selectAllActors = "Select * from Actor Where actor_id > ? and first_name like ?";
+
 	public static void main(String[] args) {
-		
 		try {
-			// Step 1. Driver
-			//Driver mysqlDriver = new Driver();
-			// Step 2 DriverManager
-			//DriverManager.registerDriver(mysqlDriver);
-			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			// Step 3 - Connection
-			// URL (IP/ port/ name / scema ) - UserName - Password
-			
-			
 			Properties props = new Properties();
 			props.setProperty("user", userName);
 			props.setProperty("password", password);
 			Connection conn = DriverManager.getConnection(url, props);
-			// Step 4: Statement
-			Statement stat = conn.createStatement();
-			// Step 5: Get the results
-			ResultSet rs = stat.executeQuery(selectAllActors);
+			// Dynamic Value pass
+			PreparedStatement pStat = conn.prepareStatement(selectAllActors);
+			pStat.setInt(1, 100);
+			pStat.setString(2, "A%");
+			ResultSet rs = pStat.executeQuery();
+		
 			if(rs != null) {
 				String firstName = null;
 				String lastname = null;
