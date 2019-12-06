@@ -14,7 +14,7 @@ public class TestJDBCConnection {
 	private static String url =  "jdbc:mysql://localhost:3306/sakila";
 	private static String userName = "root";
 	private static String password = "password";
-	private static String selectAllActors = "Select * from Actor Where actor_id = 155";
+	private static String selectAllActors = "Select * from Actor";
 	
 	
 	public static void main(String[] args) {
@@ -36,7 +36,8 @@ public class TestJDBCConnection {
 			props.setProperty("password", password);
 			Connection conn = DriverManager.getConnection(url, props);
 			// Step 4: Statement
-			Statement stat = conn.createStatement();
+			Statement stat = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, 
+								ResultSet.CONCUR_UPDATABLE);
 			// Step 5: Get the results
 			ResultSet rs = stat.executeQuery(selectAllActors);
 			if(rs != null) {
@@ -49,7 +50,12 @@ public class TestJDBCConnection {
 					firstName = rs.getString("first_name");
 					lastname = rs.getString("last_name");
 					timestamp = rs.getTimestamp("last_update");
-					System.out.println(actorId + "  " + firstName + "  " + lastname + "  " + timestamp);
+					System.out.println(rs.getRow() +  "  " + actorId + "  " + firstName + "  " + lastname + "  " + timestamp);
+					if(actorId == 301) {
+						rs.updateString("first_name", firstName.toUpperCase());
+						rs.updateString("last_name", lastname.toUpperCase());
+						rs.updateRow();
+					}
 				}
 			}
 			conn.close();
